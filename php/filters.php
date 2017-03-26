@@ -52,5 +52,20 @@
         echo ">";
         
         echo "</div>";
+        echo "<div>";
+        echo "<label>Sort By:</label>";
+        echo "</div>";
+        echo "<div>";
+        echo "<input type='radio' name='sort' value='byName'";
+        if($_GET['sort'] and $_GET['sort'] == "byName")
+            echo " checked";
+        echo ">";
+        echo "<label>Name</label>";
+        echo "<input type='radio' name='sort' value='byPrice'";
+        if($_GET['sort'] and $_GET['sort'] == "byPrice")
+            echo " checked";
+        echo ">";
+        echo "<label>Price</label>";
+        echo "</div>";
     }
 ?>

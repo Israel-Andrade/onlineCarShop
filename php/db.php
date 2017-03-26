@@ -38,16 +38,20 @@
         }
     }
     
-    function query($sql, &$dbConn, $title) {
-        $i = 0;
-        $meta = array();
-        
+    function query($sql, &$dbConn) {
         $res = mysqli_query($dbConn, $sql);
         if(!$res) {
             printf("Could not retrieve records: %s\n",mysqli_error($dbConn));
             mysqli_close($dbConn);
             exit();
         }
+        
+        return $res;
+    }
+    function generateTableWithForm(&$res, $title) {
+        $curItems = array();
+        $i = 0;
+        $meta = array();
         $num_fields = mysqli_num_fields($res);
         // check if no data avaialable
         if($res->num_rows == 0) {
@@ -66,24 +70,47 @@
             $i++;
         }
         // *************************** create table
+        echo "<form method='get' action=''>";
+        echo "<div>";
         echo "<table align='center', border='1'>";
-        echo "<tr><th colspan=".($num_fields).">$title";
+        echo "<tr><th colspan=".($num_fields + 1).">$title";
         echo "</th></tr>";
         echo "<tr>";
         for($j = 0; $j < $num_fields; $j++) {
-                if($meta[$j] == $prod_desc_col)
-                    continue;
+                // if($meta[$j] == $prod_desc_col)
+                //     continue;
                 echo "<td><b>".$meta[$j]."</b></td>";
         }
+        echo "<td><b>CHECK TO SELECT</b></td>";
         echo "</tr>";
         // retrieve row data from query
+        $t = 0;
         while($newArray = mysqli_fetch_array($res, MYSQL_ASSOC)) {
             echo "<tr>";
-            for($j = 0; $j < $num_fields; $j++)
+            $curRow = array();
+            for($j = 0; $j < $num_fields; $j++) {
                 echo "<td>".$newArray[$meta[$j]]."</td>";
+                $curRow[] = $newArray[$meta[$j]];
+            }
+            echo "<td>";
+            echo "<input type='checkbox' name="."check".$t.">";
+            echo "</td>";
+            $t++;
+            $curItems[] = $curRow;
         }
         echo "</table>";
+        echo "</div>";
+        echo "<div style='margin: 10px; text-align: center;'>";
+        // echo "<div class='margin-fix'>";
+        // echo "<input type='submit' name='submit' value='OK'>";
+        // echo "<a href='index.php?clear=2'>Clear</a>";
+        // echo "</div>";
+        echo "<input type='submit' name='addToCart' value='Add To Cart'";
+        echo "</div>";
+        echo "</form>";
         mysqli_free_result($res);
+        
+        return $curItems;
     }
     
 ?>
