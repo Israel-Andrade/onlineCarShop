@@ -5,12 +5,18 @@ user = "israelandrade22"
 password = ""
 dbName = "Car_Inventory"
 #Open database connection
-db = MySQLdb.connect(host, user, password, dbName)
-
+#db = MySQLdb.connect(host, user, password, dbName)
+db = MySQLdb.connect(host, user, password)
 #Prepare a cursor object using cursor() method
 cursor = db.cursor()
 
+
 # Drop table if it already exist using execute() method.
+cursor.execute("DROP DATABASE IF EXISTS Car_Inventory")
+cursor.execute("CREATE DATABASE Car_Inventory")
+db = MySQLdb.connect(host, user, password, dbName)
+#Prepare a cursor object using cursor() method
+cursor = db.cursor()
 cursor.execute("DROP TABLE IF EXISTS CAR_INFORMATION")
 cursor.execute("DROP TABLE IF EXISTS MODEL")
 cursor.execute("DROP TABLE IF EXISTS MAKE")
@@ -19,8 +25,8 @@ cursor.execute("DROP TABLE IF EXISTS MAKE")
 #CREATING TABLE
 sql = """CREATE TABLE CAR_INFORMATION(
         YEAR INT,
-        MAKE CHAR(20),
-        MODEL CHAR(20),
+        MAKE_ID INT,
+        MODEL_ID INT,
         PRICE INT,
         FUEL_EFFICIENCY DOUBLE)"""
 cursor.execute(sql)
@@ -41,12 +47,26 @@ sql = """CREATE TABLE MAKE(
 cursor.execute(sql)
 
 
-
-
+"""DICTIONARY TO FOR MAKE AND MAKE_ID"""
+makes ={
+    "FORD": 1,
+    "TOYOTA": 2,
+    "HONDA": 3,
+    "NISSAN": 4,
+    "TESLA": 5
+}
+"""DiCTIONARY CHECK IF MAKE HAS BEEN ADDED TO DATABASE"""
+makeHasBeenAdded ={
+    "FORD": False,
+    "TOYOTA": False,
+    "HONDA": False,
+    "NISSAN": False,
+    "TESLA": False
+}
 # Prepare SQL query to INSERT a record into the database.
 def insertToCarInformation(year, make, model, price, fuel_efficiency):
-    sql = "INSERT INTO CAR_INFORMATION(YEAR, MAKE, MODEL, PRICE, FUEL_EFFICIENCY) \
-           VALUES ('%d', '%s', '%s', '%d', '%d' )" % \
+    sql = "INSERT INTO CAR_INFORMATION(YEAR, MAKE_ID, MODEL_ID, PRICE, FUEL_EFFICIENCY) \
+           VALUES ('%d', '%d', '%d', '%d', '%d' )" % \
            (year, make, model, price, fuel_efficiency)
            
     try:
@@ -59,18 +79,21 @@ def insertToCarInformation(year, make, model, price, fuel_efficiency):
        db.rollback()
 
 def insertToMake(make, makeId):
-    sql = "INSERT INTO MAKE(ID, MAKE) \
-           VALUES ('%d', '%s')" % \
-           (makeId, make)
+    if(makeHasBeenAdded[make] == False):
+        sql = "INSERT INTO MAKE(ID, MAKE) \
+               VALUES ('%d', '%s')" % \
+               (makeId, make)
+               
+        try:
+           # Execute the SQL command
+           cursor.execute(sql)
+           # Commit your changes in the database
+           db.commit()
+        except:
+           # Rollback in case there is any error
+           db.rollback()
+        makeHasBeenAdded[make] = True
            
-    try:
-       # Execute the SQL command
-       cursor.execute(sql)
-       # Commit your changes in the database
-       db.commit()
-    except:
-       # Rollback in case there is any error
-       db.rollback()
     
     
 def insertToModel(model, modelId):
@@ -102,10 +125,11 @@ with open("carsInformation.csv", "r") as filestream:
             currentline[3] = int(currentline[3])
             currentline[4] = float(currentline[4])
             currentline[5] = int(currentline[5])
-            
-            insertToCarInformation(currentline[0], currentline[1], currentline[2], currentline[3], currentline[4])
+            oldMake = currentline[1]
+            make = oldMake.replace("\"", '')
+            insertToCarInformation(currentline[0],makes[make] , currentline[5], currentline[3], currentline[4])
             insertToModel(currentline[2], currentline[5])
-            insertToMake( currentline[1], currentline[5])
+            insertToMake(make, makes[make])
             
 
 
