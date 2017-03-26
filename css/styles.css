@@ -6,18 +6,19 @@ body {
 }
 #wrapper {
 	min-height:100%;
+	background: #497183;
 	position:relative;
 }
 #header {
-	background:#ededed;
-	padding:10px;
+	background: #24495c;
+	padding:20px;
 }
 #content {
 	padding-bottom:100px; /* Height of the footer element */
 	text-align: center;
 }
 #footer {
-	background: gray;
+	background: #497183;
 	width:100%;
 	height:100px;
 	position:absolute;

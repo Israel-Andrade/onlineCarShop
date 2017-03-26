@@ -1,4 +1,10 @@
 <?php
+
+    /*
+        This file abstracts out all php from index.php to keep it clean.
+        Contains the filters presented in the main UI when needed.
+    */
+
     if($_SESSION['make'] != "") {
         if (session_status() == PHP_SESSION_NONE)
             session_start();
@@ -10,16 +16,12 @@
         
         echo "<label> Model</label>";
         echo "<select name='model'";
-        if($_SESSION['model'])
-            echo " disabled";
         echo ">";
         echo "<option value=''></option>";
         setDropDown($dbConn, "MODEL", $_SESSION['make']);
         echo "</select>";
         
         echo "</div>";
-    // }
-    // if($_SESSION['model'] != "") {
         echo "<div>";
         
         if (session_status() == PHP_SESSION_NONE)

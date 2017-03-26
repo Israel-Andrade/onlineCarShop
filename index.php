@@ -6,6 +6,7 @@
     <body>
         <div id="wrapper">
           <div id="header">
+              <h1 style="color:white; text-align: center;">Car Shop</h1>
           </div>
           <div id="content">
               <?php
@@ -60,14 +61,14 @@
                         and $_SESSION['make'] != "";
                     if( $isTableReady ) {
                             
-                        $sql = "SELECT c.PRICE, c.YEAR, c.FUEL_EFFICIENCY FROM CAR_INFORMATION As c";
+                        $sql = "SELECT m.MAKE, mo.MODEL, c.PRICE, c.YEAR, c.FUEL_EFFICIENCY FROM CAR_INFORMATION As c";
                         
                         if(isset($_SESSION) and $_SESSION['make'] != "") {
                             $makeStr = $_SESSION['make'];
                             $sql .= " JOIN MAKE As m ON m.ID = c.MAKE_ID";
+                            $sql .= " JOIN MODEL As mo ON mo.ID = c.MODEL_ID";
                             if(isset($_GET) and $_GET['model'] != "") {
                                 $modelStr = $_GET['model'];
-                                $sql .= " JOIN MODEL As mo ON mo.ID = c.MODEL_ID";
                                 $sql .= " WHERE '$modelStr' = mo.MODEL";
                             }
                             $sql .= " AND '$makeStr' = m.MAKE";
@@ -81,16 +82,23 @@
                             $minPrice = $_GET['min_price'];
                             $sql .= " And c.PRICE >= '$minPrice'";
                         }
+                        if(isset($_GET) and $_GET['sort'] != "") {
+                            if($_GET['sort'] == 'byName') {
+                                $sql .= " ORDER BY mo.MODEL ASC";
+                            }
+                            else if($_GET['sort'] == 'byPrice') {
+                                $sql .= " ORDER BY c.PRICE ASC";
+                            }
+                        }
                         //echo "<p>".$sql."</p>";
                         $res = query($sql, $dbConn);
                         $currentItems = array();
                         $currentItems = generateTableWithForm($res, "AVAILABLE CARS");
+                        var_dump($currentItems);
                         
                     }
                     
                 ?>
-                
-
           </div>
           <div id="footer">
             <footer id="footer">
