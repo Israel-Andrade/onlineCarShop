@@ -14,10 +14,7 @@
             echo " disabled";
         echo ">";
         echo "<option value=''></option>";
-        echo "<option value='option2'";
-        if($_SESSION['model'])
-            echo "selected";
-        echo ">option 2</option>";
+        setDropDown($dbConn, "MODEL", $_SESSION['make']);
         echo "</select>";
         
         echo "</div>";
