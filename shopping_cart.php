@@ -53,7 +53,8 @@
             echo "<tr>";
             foreach($inventory[0] as $key => $value)
             {
-                echo "<th colspan='1'>" . $key . "</th>";
+                if($key != 'DESCRIPTION')
+                    echo "<th colspan='1'>" . $key . "</th>";
             }
             echo "</tr>";
             for($i = 0; $i < sizeof($shopping_cart); $i++)
