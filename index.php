@@ -13,7 +13,7 @@
                 include 'php/db.php';
                 if (session_status() == PHP_SESSION_NONE)
                     session_start();
-                if(isset($_GET) && $_GET['clear'] == 1) {
+                if( (isset($_GET) && $_GET['clear'] == 1) or (empty($_GET)) ) {
                     session_destroy();
                     session_start();
                 }
@@ -60,7 +60,7 @@
                         or $_GET['min_price'] != "" or $_GET['max_price'] != "" or $_GET['make'] or $_GET['submit'])
                         and $_SESSION['make'] != "";
                     if( $isTableReady ) {
-                        $sql = "SELECT m.MAKE, mo.MODEL, c.PRICE, c.YEAR, c.FUEL_EFFICIENCY, FROM CAR_INFORMATION As c";
+                        $sql = "SELECT m.MAKE, mo.MODEL, c.PRICE, c.YEAR, c.FUEL_EFFICIENCY, c.DESCRIPTION FROM CAR_INFORMATION As c";
                         
                         if(isset($_SESSION) and $_SESSION['make'] != "") {
                             $makeStr = $_SESSION['make'];

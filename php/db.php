@@ -72,6 +72,7 @@
     */
     
     function generateTableWithForm(&$res, $title) {
+        $desc_flag = "DESCRIPTION";
         $curItems = array();
         $i = 0;
         $meta = array();
@@ -102,7 +103,8 @@
         for($j = 0; $j < $num_fields; $j++) {
                 // if($meta[$j] == $prod_desc_col)
                 //     continue;
-                echo "<td><b>".$meta[$j]."</b></td>";
+                if($desc_flag != $meta[$j])
+                    echo "<td><b>".$meta[$j]."</b></td>";
         }
         echo "<td><b>CHECK TO SELECT</b></td>";
         echo "</tr>";
@@ -112,6 +114,7 @@
             echo "<tr>";
            // $curRow = array();
             for($j = 0; $j < $num_fields; $j++) {
+                if($desc_flag != $meta[$j])
                 echo "<td>".$newArray[$meta[$j]]."</td>";
                 //$curRow[] = $newArray[$meta[$j]];
             }
