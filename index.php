@@ -18,7 +18,7 @@
                     session_start();
                 }
                 //if(isset($_SESSION) and $_SESSION['make'] != "") {
-                $dbConn = connectDB("localhost", "web_user", "s3cr3t", "Car_Inventory");
+                $dbConn = connectDB("localhost", "", "", "Car_Inventory");
                 //}
               ?>
               <form name="myForm" method="get" action="">
