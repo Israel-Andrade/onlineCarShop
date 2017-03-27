@@ -73,4 +73,6 @@
         dislayTable($shopping_cart, $inventory);
 
 ?>
+</diV>
+</div>sss
 </body>
