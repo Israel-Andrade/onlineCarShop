@@ -28,7 +28,8 @@ sql = """CREATE TABLE CAR_INFORMATION(
         MAKE_ID INT,
         MODEL_ID INT,
         PRICE INT,
-        FUEL_EFFICIENCY DOUBLE)"""
+        FUEL_EFFICIENCY DOUBLE,
+        DESCRIPTION TEXT)"""
 cursor.execute(sql)
 
 
@@ -64,10 +65,10 @@ makeHasBeenAdded ={
     "TESLA": False
 }
 # Prepare SQL query to INSERT a record into the database.
-def insertToCarInformation(year, make, model, price, fuel_efficiency):
-    sql = "INSERT INTO CAR_INFORMATION(YEAR, MAKE_ID, MODEL_ID, PRICE, FUEL_EFFICIENCY) \
-           VALUES ('%d', '%d', '%d', '%d', '%d' )" % \
-           (year, make, model, price, fuel_efficiency)
+def insertToCarInformation(year, make, model, price, fuel_efficiency, description):
+    sql = "INSERT INTO CAR_INFORMATION(YEAR, MAKE_ID, MODEL_ID, PRICE, FUEL_EFFICIENCY, DESCRIPTION) \
+           VALUES ('%d', '%d', '%d', '%d', '%d', '%s')" % \
+           (year, make, model, price, fuel_efficiency, description)
            
     try:
        # Execute the SQL command
@@ -121,13 +122,14 @@ with open("carsInformation.csv", "r") as filestream:
             print( currentline[3])
             print( currentline[4])
             print( currentline[5])
+            print(currentline[6])
             currentline[0] = int(currentline[0])
             currentline[3] = int(currentline[3])
             currentline[4] = float(currentline[4])
             currentline[5] = int(currentline[5])
             oldMake = currentline[1]
             make = oldMake.replace("\"", '')
-            insertToCarInformation(currentline[0],makes[make] , currentline[5], currentline[3], currentline[4])
+            insertToCarInformation(currentline[0],makes[make] , currentline[5], currentline[3], currentline[4], currentline[6])
             insertToModel(currentline[2], currentline[5])
             insertToMake(make, makes[make])
 # disconnct from server

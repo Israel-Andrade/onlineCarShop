@@ -1,28 +1,28 @@
-2013,"FORD","F-100 RANGER",20000,23.7,1000,
-2014,"FORD","F-150",25000,20.1,1001,
-2017,"FORD","F-250",30000,23,1002,
-2016,"FORD","F-250 SUPER DUTY",30000,22,1003,
-2015,"FORD","MUSTANG GT",25000,24,1004,
+2013,FORD,T6,20000,23.7,1000,midsize pickup truck with 4 door extended cab and front engine
+2014,FORD,F-150,25000,20.1,1001,medium-duty truck with 4 door extended cab and four wheel drive
+2017,FORD,F-250,30000,23,1002,heavy-duty truck with 4 door extended cab and four wheen drive
+2016,FORD,F-250 SUPER DUTY,30000,22,1003,All-new high-strength.military-grade aluminum alloy. New available cameras up to seven in all enhance visibility for on-site tasks 
+2015,FORD,MUSTANG GT,25000,24,1004,The galloping pony nestled in the grille serves as a reminder that the Mustang is most at home on the open road. Both the coupe and convertible come with your choice of a 300-hp 3.7-liter V-6 or a 310-hp 2.3-liter turbo four-cylinderor a 435-hp 5.0-liter V-8; choose from a six-speed manual or a six-speed automatic. The rear-wheel-drive chassis is eager to attack corners while enabling a smooth ride when cruising. 
 
-2001,"TOYOTA","CAMRY",4500,27,2001,
-2012,"TOYOTA","PRIUS",11000,51,2002,
-2005,"TOYOTA","MATRIX",6000,28,2003,
-2013,"TOYOTA","TACOMA",15000,21,2004,
-2013,"TOYOTA","TUNDRA",20000 ,16,2005,
+2001,TOYOTA,CAMRY,4500,27,2001,For the majority of people to whom a car is merely an appliance the Camry meets their needs perfectly. Those seeking a zestier ride should look elsewhere. A 178-hp four-cylinder is standard while a 268-hp V-6 offers some serious zip.
+2012,TOYOTA,PRIUS,11000,51,2002,With its combination of space and efficiency the Prius is quite compelling—in our experience. 51 mpg is achievable even at 75-mph speeds.
+2005,TOYOTA,MATRIX,6000,28,2003,The Toyota Matrix was essentially a tall yet compact wagon with a sporty style thrown in.
+2013,TOYOTA,TACOMA,15000,21,2004,The Tacoma’s ruggedly handsome looks and available off-road gear almost redeem its tight interior and so-so fuel economy. A 2.7-liter four-cylinder making 180 lb-ft of torque is standard and pairs with a five-speed manual or a six-speed automatic; a 3.5-liter V-6 (265 lb-ft) is optional and mates to a six-speed manual or a six-speed automatic. When properly equipped the V-6 can tow 6800 lb
+2013,TOYOTA,TUNDRA,20000 ,16,2005,It’s available in a myriad of body styles bed lengths and rear- or four-wheeldrive. Powertrains include either a standard 310-hp 4.6-liter V-8 or an optional381-hp 5.7-liter V-8; both engines team up with a six-speed automatic transmission. Maximum towing rates at 10500 pounds; maximum payload is 2060 pounds.
 
-2016,"HONDA","ACCORD",17000,25,3000,
-2016,"HONDA","CIVIC",20000,30,3001,
-2015,"HONDA","CR-V",21000,27,3012,
-2015,"HONDA","FIT",12000,30,3123,
-2016,"HONDA","PILOT",25000,28,3111,
+2016,HONDA,ACCORD,17000,25,3000,A 185-hp 2.4-liter four and a six-speed manual are standard in the coupe and sedan
+2016,HONDA,CIVIC,20000,30,3001,The Civic exemplifies automotive excellence and blends fun with efficiency and practicality.Sedans and coupes get a 158-hp 2.0-liter four or a 174-hp 1.5-liter turbo four paired with a six-speed manual or a CVT.
+2015,HONDA,CR-V,21000,27,3012,Versatility and reliability are the tenets on which the CR-V hangs its hat.Supportive seats and a firm but supple ride make it easy to live with.The base engine is a 184-hp 2.4-liter four while a 190-hp 1.5-liter turbo four is optional.
+2015,HONDA,FIT,12000,30,3123,A flexible interior and an efficient powertrain make the Fit an easy recommendation.The 130-hp 1.5-liter engine drives the front wheels through a six-speed manual or a CVT.
+2016,HONDA,PILOT,25000,28,3111,The 280-hp 3.5-liter V-6 powers the front or all four wheels through a six-speedautomatic; top-level Touring and Elite trims get a nine-speed. The all-wheel-drivesystem offers torque vectoring for better handling and modes for all type of terrain
 
-2016,"NISSAN", "GT R",80000,17,4121,
-2016,"NISSAN","ALTIMA",22000,27,4010,
-2016,"NISSAN","SENTRA",16500,30,4431,
-2016,"NISSAN","JUKE",20250,27,4813,
-2016,"NISSAN","PATHFINDER",29830,24,4521,
+2016,NISSAN, GT R,100000,17,4121,Doesn’t matter what you call it—GT-R or more fittingly Godzilla—Nissan’s range topper is a supercar-stomping and high-tech dynamo. Its 3.8-liter twin-turbo V-6 makes a mighty 565 hp while a six-speed dual-clutch automatic and all-wheel drive team up to put all that power to the pavement.
+2016,NISSAN,ALTIMA,22000,27,4010,Curvy and dramatic styling mimics bigger brother Maxima and gives the Altima an upscale vibe. Engine choices are either a 182-hp 2.5-liter four or a 270-hp 3.5-liter V-6
+2016,NISSAN,SENTRA,10000,30,4431,The 1.8-liter four-cylinder makes a 130 hp and comes standard with a six-speed manual
+2016,NISSAN,JUKE,20250,27,4813,It’s powered by a 188-hp 1.6-liter turbo four-cylinder with front-wheel drive; all-wheel drive is optional
+2016,NISSAN,PATHFINDER,29830,24,4521,There’s seating for seven with easy access to the third row, even with a child seat installed on the second-row bench. The 3.5-liter V-6 makes 284 hp and drives the front or all four wheels through a CVT. 
 
-2016,"TESLA","MODEL S",130000,101,5000,
-2016,"TESLA","MODEL X",74000,102,5050,
-2016,"TESLA","MODEL 3",35000,200,5100,
+2016,TESLA,MODEL S,130000,101,5000,Boasting up to 337 miles of range the Model S is the all-electric dream car envied by many. Icing on the cake is Ludicrous mode which blasts the top P100D to 60 mph in a claimed 2.5 seconds. The lower-spec models offer reduced driving ranges and features. Luxury items such as an air filter that Tesla says can protect occupants from bioweapons and pollutants—plus available high-tech features such as Tesla’s Autopilot—seal the deal.
+2016,TESLA,MODEL X,74000,102,5050,The Model X might be the greenest—and fastest—way to tote up to 7 people over hill and dale. From 0 to 60 mph in 3.3 seconds and has a 250-mile range.
+2016,TESLA,MODEL 3,35000,200,5100,Touted as the affordable electric sports sedan the Model 3 is Tesla’s eco-friendlygift to the motoring masses. Base rear-wheel-drive cars should get about a 215-mile range; all-wheel drive will be offered and larger batteries with longer ranges are expected. Tesla’s Autopilot self-driving feature will come standard.
 

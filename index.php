@@ -60,7 +60,7 @@
                         or $_GET['min_price'] != "" or $_GET['max_price'] != "" or $_GET['make'] or $_GET['submit'])
                         and $_SESSION['make'] != "";
                     if( $isTableReady ) {
-                        $sql = "SELECT m.MAKE, mo.MODEL, c.PRICE, c.YEAR, c.FUEL_EFFICIENCY, FROM CAR_INFORMATION As c";
+                        $sql = "SELECT m.MAKE, mo.MODEL, c.PRICE, c.YEAR, c.FUEL_EFFICIENCY FROM CAR_INFORMATION As c";
                         
                         if(isset($_SESSION) and $_SESSION['make'] != "") {
                             $makeStr = $_SESSION['make'];
