@@ -1,5 +1,8 @@
 <?php
-
+    /*
+        Helper function to abstract out the connecting and error checking to db.
+        Returns db connection obj
+    */
     function connectDB($host, $user, $pass, $dbName) {
         $dbConn = mysqli_connect($host, $user, $pass, $dbName);
         
@@ -11,17 +14,25 @@
         return $dbConn;
     }
     
+    /*
+        Closes the db and error checks
+    */
     function closeDB(&$dbConn) {
         if(!empty($dbConn))
             mysqli_close($dbConn);
     }
     
+    /*
+        Sets the dropdown menu for Make and model based on the table name
+    */
+    
     function setDropDown(&$dbConn, $tableName, $conditional) {
         $sql = "select $tableName from $tableName";
-        // if($conditional != "") {
-        //     $sql .= " JOIN MAKE ON MAKE.ID = MODEL.MAKE_ID";
-        //     $sql .= " WHERE MAKE.MAKE = $conditional";
-        // }
+        if($conditional != "") {
+            $sql .= " JOIN CAR_INFORMATION ON MODEL.ID = CAR_INFORMATION.MODEL_ID";
+            $sql .= " JOIN MAKE ON MAKE.ID = CAR_INFORMATION.MAKE_ID";
+            $sql .= " WHERE MAKE.MAKE = '$conditional'";
+        }
         $res = mysqli_query($dbConn, $sql);
         if(!$res) {
             printf("Could not retrieve records: %s\n",mysqli_error($dbConn));
@@ -38,6 +49,10 @@
         }
     }
     
+    /*
+        Queries the given sql string and returns the result
+    */
+    
     function query($sql, &$dbConn) {
         $res = mysqli_query($dbConn, $sql);
         if(!$res) {
@@ -48,6 +63,14 @@
         
         return $res;
     }
+    
+    /*
+        Based on a result from a previous query, this generates a table as a form
+        to allow checks to be made and submitted.
+        
+        **Returns the items in the table as an array of arrays (for each row)
+    */
+    
     function generateTableWithForm(&$res, $title) {
         $curItems = array();
         $i = 0;
