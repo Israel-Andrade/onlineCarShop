@@ -1,7 +1,7 @@
 import MySQLdb
 
 host = "127.0.0.1"
-user = ""
+user = "miguelfletes"
 password = ""
 dbName = "Car_Inventory"
 #Open database connection
@@ -111,7 +111,7 @@ def insertToModel(model, modelId):
        db.rollback()
        
        
-with open("pythonScript/carsInformation.csv", "r") as filestream:
+with open("carsInformation.csv", "r") as filestream:
     for line in filestream:
         currentline = line.split(",")
         if(currentline[0] != '\n'):
