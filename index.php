@@ -18,7 +18,7 @@
                     session_start();
                 }
                 //if(isset($_SESSION) and $_SESSION['make'] != "") {
-                $dbConn = connectDB("localhost", "web_user", "s3cr3t", "Car_Inventory");
+                $dbConn = connectDB("localhost", "israelandrade22", "", "Car_Inventory");
                 //}
               ?>
               <form name="myForm" method="get" action="">
@@ -94,6 +94,7 @@
                         $currentItems = array();
                         $currentItems = generateTableWithForm($res, "AVAILABLE CARS");
                         var_dump($currentItems);
+                        $_SESSION['currentItems'] = $currentItems;
                     }
                 ?>
           </div>

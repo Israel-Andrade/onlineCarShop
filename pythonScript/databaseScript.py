@@ -130,9 +130,5 @@ with open("pythonScript/carsInformation.csv", "r") as filestream:
             insertToCarInformation(currentline[0],makes[make] , currentline[5], currentline[3], currentline[4])
             insertToModel(currentline[2], currentline[5])
             insertToMake(make, makes[make])
-            
-
-
-    
 # disconnct from server
 db.close()
