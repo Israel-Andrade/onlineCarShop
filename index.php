@@ -22,7 +22,7 @@
                     session_start();
                 }
                 //if(isset($_SESSION) and $_SESSION['make'] != "") {
-                $dbConn = connectDB("localhost", "miguelfletes", "", "Car_Inventory");
+                $dbConn = connectDB("localhost", "", "", "Car_Inventory");
                 //}
               ?>
               <form name="myForm" method="get" action="">
