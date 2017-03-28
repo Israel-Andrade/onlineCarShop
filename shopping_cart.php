@@ -15,35 +15,17 @@
           <div id="content">
 <?php
     session_start();
-    //check for the check items in db 
-    //if checked then add that item to my array
-    //
         $TOTAL = 0;
-        var_dump($_SESSION['currentItems']);
         $inventory = $_SESSION['currentItems'];
         $shopping_cart = $_POST["shopping_cart"];
-        echo "<br>";
-        echo sizeof($inventory);
-        echo sizeof($shopping_cart);
         if(!empty($shopping_cart))
         {
             for($i = 0; $i < sizeof($shopping_cart); $i++)
             {
-                //echo "<td>".$newArray[$meta[$j]]."</td>";
                     $index = intval($shopping_cart[$i]);
                     $TOTAL += intval($inventory[$index]['PRICE']);
-                    echo $inventory[$index]['PRICE'];
-                    echo '<br>';
             }
   
-            /*
-            for($i = 0; $i < sizeof($inventory); $i++)
-                foreach($inventory[$i] as $key => $value)
-                {
-                    if()
-            
-                }
-            */
         }
         function dislayTable($shopping_cart, $inventory)
         {
