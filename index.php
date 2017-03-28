@@ -13,7 +13,11 @@
                 include 'php/db.php';
                 if (session_status() == PHP_SESSION_NONE)
                     session_start();
-                if( (isset($_GET) && $_GET['clear'] == 1) or (empty($_GET)) ) {
+                if(isset($_GET) && isset($_GET['Description']))
+                {
+                    //
+                }
+                else if( (isset($_GET) && $_GET['clear'] == 1) or (empty($_GET)) ) {
                     session_destroy();
                     session_start();
                 }
@@ -94,11 +98,24 @@
                         $res = query($sql, $dbConn);
                         $currentItems = array();
                         $currentItems = generateTableWithForm($res, "AVAILABLE CARS");
-                        var_dump($currentItems);
+                        //var_dump($currentItems);
                         $_SESSION['currentItems'] = $currentItems;
                     }
                 ?>
           </div>
+          
+          <div>
+              <?php
+              if(isset($_GET) && isset($_GET['Description']))
+                {
+                    //echo $_GET['Description'];
+                    echo $currentItems[$_GET['Description']]['DESCRIPTION'];
+                }
+              
+              ?>
+          </div>
+          
+          
           <div id="footer">
             <footer id="footer">
             </footer>

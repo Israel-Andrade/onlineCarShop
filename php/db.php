@@ -68,10 +68,11 @@
         Based on a result from a previous query, this generates a table as a form
         to allow checks to be made and submitted.
         
-        **Returns the items in the table as an array of arrays (for each row)
+        **Returns the items in the table as an array of associative arrays (for each row)
     */
     
     function generateTableWithForm(&$res, $title) {
+        global $_GET;
         $desc_flag = "DESCRIPTION";
         $curItems = array();
         $i = 0;
@@ -114,8 +115,23 @@
             echo "<tr>";
            // $curRow = array();
             for($j = 0; $j < $num_fields; $j++) {
-                if($desc_flag != $meta[$j])
-                echo "<td>".$newArray[$meta[$j]]."</td>";
+                
+                    $strLink = "";
+                    foreach ($_GET as $key => $value)
+                    {
+                        $strLink .= $key;
+                        $strLink .= "=";
+                        $strLink .= $value;
+                        $strLink .= "&";
+                    }
+                    if($meta[$j] == "MODEL")
+                    {
+                        echo "<td><a href='index.php?" . $strLink . "Description=" . $t . "'> ". $newArray[$meta[$j]] . " </a> </td>";
+                    }
+                    else if($desc_flag != $meta[$j])
+                    {
+                        echo "<td>".$newArray[$meta[$j]]."</td>";
+                    }
                 //$curRow[] = $newArray[$meta[$j]];
             }
             echo "<td>";
