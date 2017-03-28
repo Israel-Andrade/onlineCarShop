@@ -1,7 +1,7 @@
 import MySQLdb
 
 host = "127.0.0.1"
-user = "miguelfletes"
+user = ""
 password = ""
 dbName = "Car_Inventory"
 #Open database connection
